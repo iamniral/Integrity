@@ -3,7 +3,7 @@ Library    SerialLibrary
 Library    String
 
 *** Variables ***
-${PORT}          COM10          # Or /dev/ttyUSB0 on Linux
+${PORT}          /dev/ttyACM0          # Or /dev/ttyUSB0 on Linux
 ${BAUD}          115200
 ${TERMINATOR}    \r\n
 
@@ -14,7 +14,7 @@ Connect To Nordic Device
     Add Port    ${PORT}    baudrate=${BAUD}    timeout=2
     Open Port   ${PORT}
     Reset Input Buffer    ${PORT}
-    Send AT Command    AT+MFGSECAUTH=1,asu'zfzU{Mj\#O[4V
+    Send AT Command    AT+MFGSECAUTH=1,CMJ6/(/!'-GVYBLA
 
 #Authorize Device
 #    [Documentation]    Sends the MFG Security Auth code to enable write commands.
