@@ -5,7 +5,6 @@ Test Setup       Connect To Nordic Device
 #Test Teardown    Close All Ports
 
 *** Test Cases ***
-Connect to nordic 
 Write Track notify settings
     [Documentation]    Checks if the device responds to a basic AT ping.
     ${response} =    Send AT Command    AT+TXRXNSF=1114118

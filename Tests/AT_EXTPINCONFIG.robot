@@ -1,8 +1,8 @@
-*** *** Settings ***
+*** Settings ***
 Resource    ../Resource/nordic_ble_keywords.resource
 Library     SerialLibrary
 Test Setup       Connect To Nordic Device
-Test Teardown    Close All Ports
+#Test Teardown    Close All Ports
 
 *** Test Cases ***
 Set cable configuration
