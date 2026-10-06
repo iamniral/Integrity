@@ -3,7 +3,7 @@ Library    SerialLibrary
 Library    String
 
 *** Variables ***
-${PORT}          /dev/ttyACM0          # Or /dev/ttyUSB0 on Linux
+${PORT}          /dev/ttyUSB0          # Or /dev/ttyUSB0 on Linux
 ${BAUD}          115200
 ${TERMINATOR}    \r\n
 

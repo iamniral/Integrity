@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97bba41e-2892-46da-b3bb-0ac74c467ebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/PythonProject1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/at_runner.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resource/nordic_ble_keywords.resource" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/nordic_ble_keywords.resource" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Error_code.robot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/commands.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/commands.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,23 +28,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000000001952" />
-      <entry key="MS500" value="1.0028723606288468" />
-      <entry key="S2" value="1.2650823283277737" />
-      <entry key="S5" value="2.0124795653115197" />
-      <entry key="S10" value="3.1473695202055585" />
-      <entry key="S30" value="5.191471671160439" />
-      <entry key="S60" value="6.309548479825368" />
-      <entry key="M2" value="7.454307420750411" />
-      <entry key="M5" value="12.50674320411937" />
-      <entry key="M10" value="22.529099962237943" />
-      <entry key="M15" value="29.750551924857355" />
-      <entry key="M30" value="41.00826563655314" />
-      <entry key="H1" value="48.92545265188232" />
-      <entry key="H2" value="53.6550388721393" />
-      <entry key="H4" value="56.24517694412273" />
-      <entry key="D1" value="58.528930816913764" />
-      <entry key="W1" value="58.932405472643346" />
+      <entry key="MS100" value="1.0000000000000084" />
+      <entry key="MS500" value="1.0015395809684866" />
+      <entry key="S2" value="1.3565505584518207" />
+      <entry key="S5" value="2.8611833569497493" />
+      <entry key="S10" value="4.520670677749131" />
+      <entry key="S30" value="6.533940231968373" />
+      <entry key="S60" value="7.219165484559083" />
+      <entry key="M2" value="7.596757677876282" />
+      <entry key="M5" value="7.83555408945829" />
+      <entry key="M10" value="7.945391348671503" />
+      <entry key="M15" value="8.194131599124175" />
+      <entry key="M30" value="11.243803920340856" />
+      <entry key="H1" value="25.732363536750935" />
+      <entry key="H2" value="54.438065077526716" />
+      <entry key="H4" value="84.91080860016949" />
+      <entry key="D1" value="126.25323277114296" />
+      <entry key="W1" value="135.40460383971342" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -67,23 +66,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9330329915369935" />
-      <entry key="MS500" value="0.9890773214333417" />
-      <entry key="S2" value="1.2609202666394175" />
-      <entry key="S5" value="2.0096161989042134" />
-      <entry key="S10" value="3.1448219628347363" />
-      <entry key="S30" value="5.189934633164365" />
-      <entry key="S60" value="6.308598349678937" />
-      <entry key="M2" value="7.453741264692266" />
-      <entry key="M5" value="12.506305919718057" />
-      <entry key="M10" value="22.52857785994718" />
-      <entry key="M15" value="29.75000978648695" />
-      <entry key="M30" value="41.00780539388181" />
-      <entry key="H1" value="48.925143122854614" />
-      <entry key="H2" value="53.65485801610622" />
-      <entry key="H4" value="56.24507901148701" />
-      <entry key="D1" value="58.528913357689945" />
-      <entry key="W1" value="58.93240294929869" />
+      <entry key="MS100" value="0.933032991536813" />
+      <entry key="MS500" value="0.9876516631481104" />
+      <entry key="S2" value="1.348056106312413" />
+      <entry key="S5" value="2.8494948200509262" />
+      <entry key="S10" value="4.5085890092078325" />
+      <entry key="S30" value="6.5267241356377586" />
+      <entry key="S60" value="7.214945116181323" />
+      <entry key="M2" value="7.594472054293099" />
+      <entry key="M5" value="7.83459452313664" />
+      <entry key="M10" value="7.94490319226335" />
+      <entry key="M15" value="8.193801575208603" />
+      <entry key="M30" value="11.24361671289262" />
+      <entry key="H1" value="25.732209046265055" />
+      <entry key="H2" value="54.43792041066502" />
+      <entry key="H4" value="84.91069820960608" />
+      <entry key="D1" value="126.25320541079336" />
+      <entry key="W1" value="135.40459964182324" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -118,6 +117,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
@@ -142,7 +142,9 @@
       <workItem from="1790326596062" duration="4340000" />
       <workItem from="1790572424545" duration="16932000" />
       <workItem from="1790659692185" duration="14444000" />
-      <workItem from="1790745453238" duration="1866000" />
+      <workItem from="1790745453238" duration="11500000" />
+      <workItem from="1790844025988" duration="15908000" />
+      <workItem from="1791204840785" duration="10143000" />
     </task>
     <servers />
   </component>
