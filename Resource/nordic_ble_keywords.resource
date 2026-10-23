@@ -27,8 +27,7 @@ Connect To Nordic Device
     Add Port    ${PORT}    baudrate=${BAUD}    timeout=2
     Open Port   ${PORT}
     Reset Input Buffer    ${PORT}
-    Send AT Command    AT+MFGSECAUTH=1,*QBOXcnuuEqil3Rl
-    Send AT Command    AT+MFGSECAUTH=1,_}=s!e(yHRD[Pn0W
+    Send AT Command    AT+MFGSECAUTH=1,asu'zfzU{Mj\#O[4V
 
 #Authorize Device
 #    [Documentation]    Sends the MFG Security Auth code to enable write commands.
@@ -61,10 +60,10 @@ Send AT Command
 Select hex file and create jLink script for flash the DUT
     [Arguments]    ${hex_or_bin_file}
     Log To Console    ${\n}--- Starting Hardware Flashing Sequence ---
-    
+
     # 1. Verify file exists
     File Should Exist    ${hex_or_bin_file}    msg=The firmware file '${hex_or_bin_file}' was not found!
-    
+
     # 2. Build the script using explicit newline breaks
     # This prevents syntax errors inside the J-Link engine
     ${script_content}=    Catenate    SEPARATOR=${\n}
@@ -77,33 +76,33 @@ Select hex file and create jLink script for flash the DUT
     ...    g
     ...    q
     Create File    ${SCRIPT_PATH}    ${script_content}
-    
+
 Set the Device for the J-Link tool
-    ${process}=    Run Process    ${JLINK_EXE_PATH}    
-    ...    -device         ${TARGET_DEVICE}    
-    ...    -if             ${INTERFACE}    
-    ...    -speed          ${SPEED_KHZ}    
-    ...    -autoconnect    1    
+    ${process}=    Run Process    ${JLINK_EXE_PATH}
+    ...    -device         ${TARGET_DEVICE}
+    ...    -if             ${INTERFACE}
+    ...    -speed          ${SPEED_KHZ}
+    ...    -autoconnect    1
     ...    -CommanderScript    ${SCRIPT_PATH}
-    
+
     # Extract only the exact properties you need right away
     Set Suite Variable    $JLINK_OUTPUT    ${process.stdout}
     Set Suite Variable    $JLINK_RC        ${process.rc}
-    
+
 Cleanup jLink file from current directory
     Remove File    ${SCRIPT_PATH}
-    
+
 Verify Flash Result
     Log To Console    ${\n}=== J-LINK HARDWARE OUTPUT ===
     Log To Console    ${JLINK_OUTPUT}
     Log To Console    ============================
-    Should Be Equal As Integers    ${JLINK_RC}    0    
+    Should Be Equal As Integers    ${JLINK_RC}    0
     ...    msg=JLink process exited with code ${JLINK_RC}. See the hardware output printed above!
 
 
 Run the script and capture all terminal output
     ${result} =    Run Process    python    ${SCRIPT_NAME}    cwd=${TARGET_FOLDER}    shell=True
-    
+
     # Convert terminal output to lowercase to avoid case-sensitivity issues
     ${output} =    Convert To Lowercase    ${result.stdout}
     # 🌟 NEW: Exposes these variables back to your test cases
