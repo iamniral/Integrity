@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.6 on win32)" generated="2026-10-26T17:02:09.121920" rpa="false" schemaversion="5">
+<suite id="s1" name="Modem DFU" source="D:\GlobalStar_Automation\Integrity\Tests\Modem_DFU.robot">
+<test id="s1-t1" name="Verify Script Execution Stages and DFU Status" line="9">
+<kw name="Run the script and capture all terminal output" owner="nordic_ble_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2026-10-26T17:02:09.306595" level="INFO">Starting process:
+python -u INT200_USB_MODEM_dfu_SAT_Partition_controller_serial_transfer_1.6.0_new.py</msg>
+<msg time="2026-10-26T17:02:09.328124" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-10-26T17:02:09.469261" level="INFO">Process completed.</msg>
+<msg time="2026-10-26T17:02:09.469434" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>python</arg>
+<arg>-u</arg>
+<arg>${SCRIPT_NAME}</arg>
+<arg>cwd=${TARGET_FOLDER}</arg>
+<arg>shell=False</arg>
+<arg>stderr=STDOUT</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2026-10-26T17:02:09.306013" elapsed="0.163454"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-26T17:02:09.470729" level="INFO">${decoded_stdout} = error open serial port: could not open port 'COM5': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)</msg>
+<var>${decoded_stdout}</var>
+<arg>$result.stdout.decode('utf-8', errors='ignore') if isinstance($result.stdout, bytes) else $result.stdout</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-26T17:02:09.469669" elapsed="0.001114"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Script Exit Code: ${result.rc}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-10-26T17:02:09.470944" elapsed="0.001265"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[DEBUG] Captured Output: ${result.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-10-26T17:02:09.472383" elapsed="0.001639"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2026-10-26T17:02:09.475181" level="INFO">${output} = error open serial port: could not open port 'com5': filenotfounderror(2, 'the system cannot find the file specified.', none, 2)</msg>
+<var>${output}</var>
+<arg>${result.stdout}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2026-10-26T17:02:09.474203" elapsed="0.001021"/>
+</kw>
+<return>
+<value>${result}</value>
+<value>${output}</value>
+<status status="PASS" start="2026-10-26T17:02:09.475297" elapsed="0.000058"/>
+</return>
+<msg time="2026-10-26T17:02:09.475565" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<msg time="2026-10-26T17:02:09.475613" level="INFO">${lowercase_output} = error open serial port: could not open port 'com5': filenotfounderror(2, 'the system cannot find the file specified.', none, 2)</msg>
+<var>${result}</var>
+<var>${lowercase_output}</var>
+<status status="PASS" start="2026-10-26T17:02:09.305214" elapsed="0.170423"/>
+</kw>
+<kw name="USB DFU Stage 1 Validation" owner="nordic_ble_keywords">
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2026-10-26T17:02:09.477298" level="INFO">${lower_val} = status x6 - dfu image in nordic flash crc check success (stage 1 of 2) complete</msg>
+<var>${lower_val}</var>
+<arg>${DFU_STAGE_1_SUCCESS}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2026-10-26T17:02:09.477073" elapsed="0.000260"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2026-10-26T17:02:09.477637" level="INFO">${lower_out} = error open serial port: could not open port 'com5': filenotfounderror(2, 'the system cannot find the file specified.', none, 2)</msg>
+<var>${lower_out}</var>
+<arg>${captured_stdout}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2026-10-26T17:02:09.477456" elapsed="0.000208"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2026-10-26T17:02:09.478453" level="FAIL">❌ Step 1 Failed: 'Status x6 - DFU Image in Nordic Flash CRC Check Success (Stage 1 of 2) Complete' was not found in terminal logs!: 'error open serial port: could not open port 'com5': filenotfounderror(2, 'the system cannot find the file specified.', none, 2)' does not contain 'status x6 - dfu image in nordic flash crc check success (stage 1 of 2) complete'</msg>
+<arg>${lower_out}</arg>
+<arg>${lower_val}</arg>
+<arg>msg=❌ Step 1 Failed: '${DFU_STAGE_1_SUCCESS}' was not found in terminal logs!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-10-26T17:02:09.477775" elapsed="0.000844">❌ Step 1 Failed: 'Status x6 - DFU Image in Nordic Flash CRC Check Success (Stage 1 of 2) Complete' was not found in terminal logs!: 'error open serial port: could not open port 'com5': filenotfounderror(2, 'the system cannot find the file specified.', none, 2)' does not contain 'status x6 - dfu image in nordic flash crc check success (stage 1 of 2) complete'</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Status x6 - DFU Image in Nordic Flash CRC Check Success (Stage 1 of 2) Complete</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-10-26T17:02:09.478786" elapsed="0.000025"/>
+</kw>
+<arg>${result.stdout}</arg>
+<status status="FAIL" start="2026-10-26T17:02:09.475982" elapsed="0.002950">❌ Step 1 Failed: 'Status x6 - DFU Image in Nordic Flash CRC Check Success (Stage 1 of 2) Complete' was not found in terminal logs!: 'error open serial port: could not open port 'com5': filenotfounderror(2, 'the system cannot find the file specified.', none, 2)' does not contain 'status x6 - dfu image in nordic flash crc check success (stage 1 of 2) complete'</status>
+</kw>
+<kw name="USB DFU Stage 2 Validation" owner="nordic_ble_keywords">
+<arg>${lowercase_output}</arg>
+<status status="NOT RUN" start="2026-10-26T17:02:09.479303" elapsed="0.000038"/>
+</kw>
+<kw name="Logs on consol" owner="nordic_ble_keywords">
+<arg>${result.stdout}</arg>
+<doc>Runs the external python script, captures stderr, and prevents shell buffering bugs.</doc>
+<status status="NOT RUN" start="2026-10-26T17:02:09.479989" elapsed="0.000075"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2026-10-26T17:02:09.480429" elapsed="0.000033"/>
+</kw>
+<doc>Runs the script, verifies Stage 1 completion, then checks Stage 2 DFU results.</doc>
+<status status="FAIL" start="2026-10-26T17:02:09.304303" elapsed="0.177911">❌ Step 1 Failed: 'Status x6 - DFU Image in Nordic Flash CRC Check Success (Stage 1 of 2) Complete' was not found in terminal logs!: 'error open serial port: could not open port 'com5': filenotfounderror(2, 'the system cannot find the file specified.', none, 2)' does not contain 'status x6 - dfu image in nordic flash crc check success (stage 1 of 2) complete'</status>
+</test>
+<doc>Automated script to open a directory and execute a script.</doc>
+<status status="FAIL" start="2026-10-26T17:02:09.124568" elapsed="0.359679"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Modem DFU" id="s1" pass="0" fail="1" skip="0">Modem DFU</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

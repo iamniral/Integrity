@@ -9,13 +9,13 @@ Library          String      # 👈 YOU MUST ADD THIS LINE TO FIX THE ERROR
 Verify Script Execution Stages and DFU Status
     [Documentation]    Runs the script, verifies Stage 1 completion, then checks Stage 2 DFU results.
     
-    ${result}    ${output} =    Run the script and capture all terminal output
+    ${result}    ${lowercase_output}=    Run the script and capture all terminal output
 
     USB DFU Stage 1 Validation    ${result.stdout}  
 
-    USB DFU Stage 2 Validation    ${output}   
+    USB DFU Stage 2 Validation    ${lowercase_output}   
 
-    Logs on consol    ${output}   
+    Logs on consol    ${result.stdout}
     
     # Ensure the script didn't crash with a system error code
     Should Be Equal As Integers    ${result.rc}    0
